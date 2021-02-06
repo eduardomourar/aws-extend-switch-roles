@@ -1,6 +1,37 @@
 Changelog
 =========
 
+## v2.0.6 (2021/01/25)
+
+- Fix encoding redirect URI in the particular AWS Console pages
+- Fix double scrollbars of the popup menu
+- Add supporters program and golden key feature instead of donations
+- Change left pane in the popup menu to always be visible
+
+## v2.0.5 (2020/10/04)
+
+- Fix 'Show only matching roles'
+- Fix broken switch if the destination region is specified when you show AWS global service page
+- Fix to work on old AWS Console Nav UI for AWS GovCloud and China partition
+
+## v2.0.4 (2020/09/28)
+
+- Enable 'Show only matching roles' again
+- Open the popup menu with the keyboard shortcut (default `Ctrl + Shift + ,`) (thanks to @axeleroy)
+- Refacor Refactor inner processing account and user information
+- Remove dependency on Sanitizer
+
+## v2.0.3 (2020/09/24)
+
+- Significantly change to show the role list in the popup menu displayed when you click the extension icon on the browser tool bar.
+- Abolish 'Hide original role history'
+- Abolish attaching color line on the bottom of the AWS Console header
+- Abolish inserting the profile image into the AWS Console header even if the image parameter is defined
+- Abolish adjusting the color contrast of the display name in the AWS Console header
+- Disable 'Show only matching roles' temporarily
+- Disable 'Automatically assume last assumed role (Experimental)' temporarily
+- Change the color of this extension icon
+
 ## v0.15.0 (2020/05/16)
 
 - Support AWS China Partition (thanks to @int32bit)

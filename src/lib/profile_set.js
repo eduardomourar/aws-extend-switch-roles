@@ -1,5 +1,5 @@
 class ProfileSet {
-  constructor(items, showOnlyMatchingRoles) {
+  constructor(items, baseAccount, { filterByTargetRole }) {
     // Map that has entries { <awsAccountId>: <Profile> }
     this.srcProfileMap = {};
     let destsBySrcMap = {}; // { <srcProfileName>: [<destProfile>... ] }
@@ -20,25 +20,17 @@ class ProfileSet {
     });
 
     let complexDests = [];
-    let baseProfile = this._getBaseProfile();
+    const baseProfile = this.srcProfileMap[baseAccount];
     if (baseProfile) {
-      complexDests = this._decideComplexDestProfiles(baseProfile, destsBySrcMap, { showOnlyMatchingRoles })
+      complexDests = this._decideComplexDestProfiles(baseProfile, destsBySrcMap, filterByTargetRole);
       delete destsBySrcMap[baseProfile.profile];
     }
 
     // To display roles on the list
     this.destProfiles = [].concat(independentDests).concat(complexDests)
-
-    // For excluding unrelated profiles from recent history
-    this.excludedNames = this._decideExcludedNames(destsBySrcMap)
   }
 
-  _getBaseProfile() {
-    let baseAccountId = getAccountId('awsc-login-display-name-account');
-    return this.srcProfileMap[baseAccountId];
-  }
-
-  _decideComplexDestProfiles(baseProfile, destsBySrcMap, { showOnlyMatchingRoles }) {
+  _decideComplexDestProfiles(baseProfile, destsBySrcMap, filterByTargetRole) {
     let profiles = (destsBySrcMap[baseProfile.profile] || []).map(profile => {
       if (!profile.role_name) {
         profile.role_name = baseProfile.target_role_name
@@ -51,20 +43,9 @@ class ProfileSet {
       return profile
     })
 
-    if (showOnlyMatchingRoles && document.body.className.includes('user-type-federated')) {
-      let baseRole = getAssumedRole();
-      profiles = profiles.filter(el => el.role_name === baseRole)
+    if (filterByTargetRole) {
+      profiles = profiles.filter(el => el.role_name === filterByTargetRole);
     }
     return profiles;
-  }
-
-  _decideExcludedNames(destsBySrcMap) {
-    let result = [];
-    for (let name in destsBySrcMap) {
-      destsBySrcMap[name].forEach(item => {
-        result.push(item.profile);
-      });
-    }
-    return result;
   }
 }

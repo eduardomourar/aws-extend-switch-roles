@@ -1,11 +1,5 @@
-<h1 align="center">Plugin Broken Following AWS Console UI Update</h1>
-<h2 align="center">https://github.com/tilfin/aws-extend-switch-roles/issues/156</h2>
-
----
-
 # AWS Extend Switch Roles
 
-[![Build Status](https://travis-ci.org/tilfin/aws-extend-switch-roles.svg?branch=master)](https://travis-ci.org/tilfin/aws-extend-switch-roles)
 [![codecov](https://codecov.io/gh/tilfin/aws-extend-switch-roles/branch/master/graph/badge.svg)](https://codecov.io/gh/tilfin/aws-extend-switch-roles)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/jpmkfafbacpgapdghgdpembnojdlgkdl.svg)](https://chrome.google.com/webstore/detail/aws-extend-switch-roles/jpmkfafbacpgapdghgdpembnojdlgkdl?utm_source=github)
 [![Firefox Add-on](https://img.shields.io/amo/v/aws-extend-switch-roles3.svg)](https://addons.mozilla.org/ja/firefox/addon/aws-extend-switch-roles3/)
@@ -13,10 +7,17 @@
 Extend your AWS IAM switching roles by Chrome extension or Firefox add-on
 
 Switch roll history does not remain only 5 maximum on the AWS Management Console.
-This extension extends to show more switch roles by loading your aws configuration.
-The bottom of the console header is emphasized with your specified color if you assume a cross account role.
+This extension give you show all of switch roles from a browse menu by loading your aws configuration.
 
 - Supports Chrome Sync
+
+### Development and Distribution Guideline
+
+##### Minimize required permissions and operating the page of Console
+A browser plug-in goes with security risks. AWS Management Console allows you to manipulate your essential data.
+
+##### Support the only latest version for each official build browser
+It does not restrict the use of other compatible browsers. The version restrictions are based on JavaScript language features used.
 
 ## Install
 
@@ -121,27 +122,20 @@ The 'Show only matching roles' setting is for use with more sophisticated accoun
 
 ## Settings
 
-- **Hide original role history** hides original role history (Show only roles in the configuration).
 - **Hide account id** hides the account_id for each profile.
 - **Show only matching roles** filters to only show profiles with roles that match your role in your master account.
-- **Automatically assume last assumed role (Experimental)** automatically assumes last assumed role on the next sign-in if did not back to the base account and signed out.
+- ~~**Automatically assume last assumed role (Experimental)** automatically assumes last assumed role on the next sign-in if did not back to the base account and signed out.~~ **temporarily disabled**
 
 ## Extension API
 
 - **Config sender extension** allowed by the **ID** can send your switch roles configuration to this extension. [See](https://github.com/tilfin/aws-extend-switch-roles/wiki/External-API#config-sender-extension) how to make your config sender extension.
 
-## Donation
+## Supporters
 
-Would you like to support this extension? I gladly accept small donations.
-
-[![Donate $5 via PayPal.Me](https://img.shields.io/badge/Donate-%245%20via%20PayPal.Me-blue.svg?longCache=true&style=popout&logo=paypal)](https://www.paypal.me/toshitilfin/5USD)
-
-![Donate with bitcoin](https://img.shields.io/badge/Donate-bitcoin-orange.svg?longCache=true&style=plastic&logo=bitcoin) [Bitcoin: 1C346W5vXaH7DjCyUUYeCj4GuXMTbNbLjk](bitcoin:1C346W5vXaH7DjCyUUYeCj4GuXMTbNbLjk)
+<a href="https://classmethod.jp/" rel="noopener"><img alt="Classmethod, Inc." src="https://aesr.tilfin.com/supporters/img/classmethod.png" width="208" height="90"></a>
 
 ## Appearance
 
-![Screen Shot 1](https://github.com/tilfin/aws-extend-switch-roles/blob/images/ScreenShot_1_960x600.png)
-
-![Screen Shot 2](https://github.com/tilfin/aws-extend-switch-roles/blob/images/ScreenShot_2_960x600.png)
+![Screen Shot 1](https://github.com/tilfin/aws-extend-switch-roles/blob/images/ScreenShot_1.png)
 
 ![Screen Shot 3](https://github.com/tilfin/aws-extend-switch-roles/blob/images/ScreenShot_3_960x600.png)

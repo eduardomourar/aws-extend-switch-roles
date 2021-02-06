@@ -22,19 +22,43 @@
     font-weight: bold;
   }
   section p { text-indent: .25em }
-  ul > li { padding-left: .25em }
+  ul > li { padding-left: .25em; }
   ol > li { padding-left: .5em }
   </style>
 </head>
 <body>
   <h1 style="margin:0">AWS Extend Switch Roles - Update Notice</h1>
-  <p style="font-size: 125%">New version <strong>0.15.0</strong></p>
+  <p style="font-size: 125%">New version <strong>2.0.6</strong></p>
 
   <section>
-    <h2>New Features</h2>
-
+    <h2>2.0.6</h2>
     <ul>
-      <li>Support AWS China Partition</li>
+      <li><b>Fix encoding redirect URI in the particular AWS Console pages</b></li>
+      <li><b>Fix double scrollbars of the popup menu</b></li>
+      <li><b>Add supporters program and golden key feature</b></li>
+      <li>Change left pane in the popup menu to always be visible</li>
+    </ul>
+
+    <h2>2.0.5</h2>
+    <ul>
+      <li><b>Fix 'Show only matching roles'</b></li>
+      <li><b>Fix broken switch if the destination region is specified when you show AWS global service page</b></li>
+      <li><b>Fix to work on old AWS Console Nav UI for AWS GovCloud and China partition</b></li>
+    </ul>
+
+    <h2>2.0.4</h2>
+    <ul>
+      <li><s>Enable 'Show only matching roles' again</s></li>
+      <li><b>Open the popup menu with the keyboard shortcut</b> (default: Windows: <code>Ctrl + Shift + ,</code> macOS: <code>Command + Shift + ,</code>)</li>
+    </ul>
+
+    <h2>2.0.3</h2>
+    <ul>
+      <li><b>Significantly change to <span style="color: #d00">show the role list in the popup menu displayed when you click the extension icon on the browser menu bar</span>.</b></li>
+      <li>Abolish attaching color line on the bottom of the AWS Console header</li>
+      <li>Abolish inserting the profile image into the AWS Console header even if the image parameter is defined</li>
+      <li>Disable 'Automatically assume last assumed role (Experimental)' temporarily</li>
+      <li>Change the color of this extension icon</li>
     </ul>
   </section>
 
